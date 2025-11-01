@@ -12,13 +12,15 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card } from "@/components/ui/card"
 import { Linkedin, Instagram, File } from "lucide-react"
 
-export default function Popup() {
+export default function Popup({
+  children, // 👈 allow passing any trigger as a child
+}: {
+  children: React.ReactNode
+}) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="rounded-full bg-sky-400 text-sky-800 font-semibold hover:bg-sky-500 px-6 py-2">
-          Editar Perfil
-        </Button>
+        {children}
       </DialogTrigger>
 
       <DialogContent className="max-w-4xl bg-sky-50 p-8 rounded-2xl">
