@@ -5,7 +5,7 @@ import Popup from './popup'
 // Definição dos dados da grid com as cores correspondentes à imagem
 const gridData: CardData[] = [
   { id: 1, name: 'Salomé Monteiro', variant: 'blue' as const },
-  { id: 2, name: 'Salomé Monteiro', variant: 'blue' as const },
+  { id: 2, name: 'Gustavo', variant: 'blue' as const },
   { id: 3, name: 'Salomé Monteiro', variant: 'purple' as const },
   { id: 4, name: 'Salomé Monteiro', variant: 'green' as const },
   { id: 5, name: 'Salomé Monteiro', variant: 'blue' as const },
@@ -56,7 +56,7 @@ export function CardGrid() {
     <div className="flex min-h-screen items-center justify-center px-8">
       <div className="grid w-full max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
         {gridData.map((card) => (
-          <Popup>
+          <Popup data={card}>
           <Card
             key={card.id}
             name={card.name}

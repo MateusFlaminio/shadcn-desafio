@@ -10,12 +10,15 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Card } from "@/components/ui/card"
+import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar"
 import { Linkedin, Instagram, File } from "lucide-react"
 
 export default function Popup({
+  data,
   children, // 👈 allow passing any trigger as a child
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  data: { id: number; name: string; }
 }) {
   return (
     <Dialog>
@@ -34,7 +37,10 @@ export default function Popup({
           {/* LEFT SIDE */}
           <div className="flex flex-col items-center space-y-3">
             <div className="relative w-40 h-40 rounded-full border-4 border-sky-500 overflow-hidden">
-              imagem
+              <Avatar className="w-full h-full">
+                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
             </div>
             <Button className="bg-sky-400 hover:bg-sky-500 text-sky-800 font-semibold rounded-full shadow-sm px-6 py-2">
               ALTERAR FOTO
@@ -46,7 +52,7 @@ export default function Popup({
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <Label className="text-sky-800">Nome Completo *</Label>
-                <Input defaultValue="Salomé Simões Monteiro" />
+                <Input defaultValue={data.name} />
               </div>
               <div>
                 <Label className="text-sky-800">Idade *</Label>
@@ -85,17 +91,6 @@ export default function Popup({
                   <Input defaultValue="salomemonteiro" />
                 </div>
               </div>
-            </div>
-
-            <div className="flex gap-3 mt-4">
-              <Card className="flex items-center justify-center gap-2 px-4 py-2 bg-sky-100 text-sky-800 cursor-pointer" name="">
-                <File className="h-4 w-4" />
-                SalomeMonteiroCV.pdf
-              </Card>
-              <Card className="flex items-center justify-center gap-2 px-4 py-2 bg-sky-100 text-sky-800 cursor-pointer" name="">
-                <File className="h-4 w-4" />
-                SalomeMonteiroPortfólio.pdf
-              </Card>
             </div>
 
             <div className="flex justify-end mt-6">
