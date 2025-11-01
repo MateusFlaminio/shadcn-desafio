@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Card } from "@/components/ui/card"
+import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar"
 import { Linkedin, Instagram, File } from "lucide-react"
 
 export default function Popup({
@@ -34,7 +35,10 @@ export default function Popup({
           {/* LEFT SIDE */}
           <div className="flex flex-col items-center space-y-3">
             <div className="relative w-40 h-40 rounded-full border-4 border-sky-500 overflow-hidden">
-              imagem
+              <Avatar className="w-full h-full">
+                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
             </div>
             <Button className="bg-sky-400 hover:bg-sky-500 text-sky-800 font-semibold rounded-full shadow-sm px-6 py-2">
               ALTERAR FOTO
